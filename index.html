@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <title>Image Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script>
+	/*$(document).ready(function(){
+		$( "li" ).click(function() {
+			//$("#div1").load("mobutv_lab2_sida2.html");
+			//alert("click");
+			$("#div1").hide();
+		});
+	});*/
+</script>
+</head>
+<body>
+    <div data-role="page" id="screen1">
+ 
+        <div data-role="header">
+            <h1>Image Gallery</h1>
+			<a href="index.html" data-icon="gear">Settings</a>
+        </div><!-- /header -->
+ 
+        <div id="div1" data-role="content">
+        
+			<ul data-role="listview" data-inset="true">
+				<li class="imageButton"><a  href="#screen2">Cute</a></li>
+				<li><a class="imageButton" href="#">Win</a></li>
+				<li><a class="imageButton" href="#">Fail</a></li>
+				<li><a class="imageButton" href="#">Boring</a></li>
+				<li><a class="imageButton" href="#">WTF</a></li>
+			</ul>
+		
+				<li><a data-role="button" href="#screen3">About</a></li>
+
+        </div><!-- /content -->
+ 
+    </div><!-- /page -->
+	
+	
+	
+	
+	 <div data-role="page" id="screen2" data-add-back-btn="true" >
+ 
+        <div data-role="header" >
+			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
+            <h1>My Title</h1>
+			<a href="#screen1" data-icon="home">Home</a>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+     
+        </div><!-- /content -->
+ 
+    </div><!-- /page -->
+	
+	
+	
+	
+	
+	 <div data-role="page" id="screen3" data-add-back-btn="true">
+ 
+        <div data-role="header" >
+			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
+			<h1>About</h1>
+	
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+			<ul data-role="listview" data-inset="true">
+				<li >The Undevelopers</li>
+				<li>Dan Carino</li>
+				<li>Stephanie Flodman</li>
+				<li>Fiona Stewart</li>
+			</ul>
+        </div><!-- /content -->
+ 
+    </div><!-- /page -->
+</body>
+</html>
