@@ -7,34 +7,97 @@
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script>
-	/*$(document).ready(function(){
-		$( "li" ).click(function() {
-			//$("#div1").load("mobutv_lab2_sida2.html");
-			//alert("click");
-			$("#div1").hide();
-		});
-	});*/
+
+	$.mobile.changeGlobalTheme = function(theme)
+{
+    // These themes will be cleared, add more
+    // swatch letters as needed.
+    var themes = " a b c d e";
+
+    // Updates the theme for all elements that match the
+    // CSS selector with the specified theme class.
+    function setTheme(cssSelector, themeClass, theme)
+    {
+        $(cssSelector)
+            .removeClass(themes.split(" ").join(" " + themeClass + "-"))
+            .addClass(themeClass + "-" + theme)
+            .attr("data-theme", theme);
+    }
+
+    // Add more selectors/theme classes as needed.
+    setTheme(".ui-mobile-viewport", "ui-overlay", theme);
+    setTheme("[data-role='page']", "ui-body", theme);
+    setTheme("[data-role='header']", "ui-bar", theme);
+    setTheme("[data-role='listview'] > li", "ui-bar", theme);
+    setTheme(".ui-btn", "ui-btn-up", theme);
+    setTheme(".ui-btn", "ui-btn-hover", theme);
+};
+	});
+	
+	$("#themeA").on("tap",function(){
+		//$.mobile.changeGlobalTheme("b");
+		alert("hej");
+	});
 </script>
 </head>
 <body>
-    <div data-role="page" id="screen1">
- 
+   
+	
+   
+   
+   
+   <div data-role="page" id="screen1" data-theme="b" >
+		
+		<div data-role="popup" id="popupBasic" >
+			<div data-role="header" >
+				 <h1>Settings</h1>
+			</div>	
+			Change Theme
+			<a data-role="button" id="themeA">Theme A</a>
+			<a data-role="button">Theme B</a>
+			<a data-role="button">Theme C</a>
+			<a data-role="button">Theme D</a>
+			<a data-role="button">Theme E</a>
+			
+		</div>
+		
         <div data-role="header">
             <h1>Image Gallery</h1>
-			<a href="index.html" data-icon="gear">Settings</a>
+			<a href="#popupBasic" data-rel="popup" data-position-to="window" class="ui-btn-right" data-icon="gear" data-theme="d">Settings</a>
         </div><!-- /header -->
  
         <div id="div1" data-role="content">
         
-			<ul data-role="listview" data-inset="true">
-				<li class="imageButton"><a  href="#screen2">Cute</a></li>
-				<li><a class="imageButton" href="#">Win</a></li>
-				<li><a class="imageButton" href="#">Fail</a></li>
-				<li><a class="imageButton" href="#">Boring</a></li>
-				<li><a class="imageButton" href="#">WTF</a></li>
+			<ul data-role="listview" data-inset="true" >
+				<li class="imageButton">
+					<a  href="#screen2" data-transition="flip">
+					<img src="http://cutestuff.co/wp-content/uploads/2012/03/cute_cat_eyes.jpg" />
+					<h2>Cute</h2></a>
+				</li>
+				<li>
+					<a class="imageButton" href="#">
+					<img src="http://31.media.tumblr.com/tumblr_lxr8e2v3mK1rnnpl4o1_500.jpg" />
+					<h2>Win</h2></a>
+				</li>
+				<li>
+					<a class="imageButton" href="#">
+					<img src="http://jonathanbecher.com/wp-content/uploads/2013/11/Fail1.jpg" />
+					<h2>Fail</h2></a>
+				</li>
+				<li>
+					<a class="imageButton" href="#">
+					<img src="http://strictlyautobiographical.com/wp-content/uploads/2013/12/nothing.jpg" />
+					<h2>Boring</h2></a>
+				</li>
+				<li>
+					
+					<a class="imageButton" href="#">
+					<img src="http://data1.whicdn.com/images/34666029/large.jpg" />
+					<h2>WTF</h2></a>
+				</li>
 			</ul>
 		
-				<li><a data-role="button" href="#screen3">About</a></li>
+				<li><a data-role="button" href="#screen3" data-transition="slideup">About</a></li>
 
         </div><!-- /content -->
  
@@ -48,7 +111,7 @@
         <div data-role="header" >
 			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
             <h1>My Title</h1>
-			<a href="#screen1" data-icon="home">Home</a>
+			<a href="#screen1" data-icon="home" data-transition="flow">Home</a>
         </div><!-- /header -->
  
         <div data-role="content">
@@ -64,7 +127,7 @@
 	 <div data-role="page" id="screen3" data-add-back-btn="true">
  
         <div data-role="header" >
-			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
+			<a href="#" data-icon="arrow-l" data-rel="back" data-transition="flip">Back</a>
 			<h1>About</h1>
 	
         </div><!-- /header -->
@@ -77,6 +140,8 @@
 				<li>Fiona Stewart</li>
 			</ul>
         </div><!-- /content -->
+ 
+ 
  
     </div><!-- /page -->
 </body>
