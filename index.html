@@ -6,37 +6,37 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	
 	<script>
+	$.mobile.changeGlobalTheme = function(theme){	
+		// These themes will be cleared, add more
+		// swatch letters as needed.
+		var themes = " a b c d e";
 
-	$.mobile.changeGlobalTheme = function(theme)
-{
-    // These themes will be cleared, add more
-    // swatch letters as needed.
-    var themes = " a b c d e";
-
-    // Updates the theme for all elements that match the
-    // CSS selector with the specified theme class.
-    function setTheme(cssSelector, themeClass, theme)
-    {
-        $(cssSelector)
+		// Updates the theme for all elements that match the
+		// CSS selector with the specified theme class.
+		function setTheme(cssSelector, themeClass, theme){
+			$(cssSelector)
             .removeClass(themes.split(" ").join(" " + themeClass + "-"))
             .addClass(themeClass + "-" + theme)
             .attr("data-theme", theme);
-    }
+		}
 
-    // Add more selectors/theme classes as needed.
-    setTheme(".ui-mobile-viewport", "ui-overlay", theme);
-    setTheme("[data-role='page']", "ui-body", theme);
-    setTheme("[data-role='header']", "ui-bar", theme);
-    setTheme("[data-role='listview'] > li", "ui-bar", theme);
-    setTheme(".ui-btn", "ui-btn-up", theme);
-    setTheme(".ui-btn", "ui-btn-hover", theme);
-};
-	});
+		// Add more selectors/theme classes as needed.
+		setTheme(".ui-mobile-viewport", "ui-overlay", theme);
+		setTheme("[data-role='page']", "ui-body", theme);
+		setTheme("[data-role='header']", "ui-bar", theme);
+		setTheme("[data-role='listview'] > li", "ui-bar", theme);
+		setTheme(".ui-btn", "ui-btn-up", theme);
+		setTheme(".ui-btn", "ui-btn-hover", theme);
+	};
 	
-	$("#themeA").on("tap",function(){
-		//$.mobile.changeGlobalTheme("b");
-		alert("hej");
+</script>
+<script>
+	$(document).on("pagecreate","#screen1",function(){
+		$(".theme").on("tap",function(){
+			$.mobile.changeGlobalTheme($(this).attr("id"));
+		});
 	});
 </script>
 </head>
@@ -53,17 +53,17 @@
 				 <h1>Settings</h1>
 			</div>	
 			Change Theme
-			<a data-role="button" id="themeA">Theme A</a>
-			<a data-role="button">Theme B</a>
-			<a data-role="button">Theme C</a>
-			<a data-role="button">Theme D</a>
-			<a data-role="button">Theme E</a>
+			<a data-role="button" class="theme" id="a">Theme A</a>
+			<a data-role="button" class="theme" id="b">Theme B</a>
+			<a data-role="button" class="theme" id="c">Theme C</a>
+			<a data-role="button" class="theme" id="d">Theme D</a>
+			<a data-role="button" class="theme" id="e">Theme E</a>
 			
 		</div>
 		
         <div data-role="header">
             <h1>Image Gallery</h1>
-			<a href="#popupBasic" data-rel="popup" data-position-to="window" class="ui-btn-right" data-icon="gear" data-theme="d">Settings</a>
+			<a href="#popupBasic" data-rel="popup" data-position-to="window" class="ui-btn-right" data-icon="gear" data-theme="d">Setting</a>
         </div><!-- /header -->
  
         <div id="div1" data-role="content">
