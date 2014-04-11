@@ -37,27 +37,38 @@
 		$(".theme").on("tap",function(){
 			$.mobile.changeGlobalTheme($(this).attr("id"));
 		});
+	
+	});
+	var pictureOrder = ["screen2cute", "screen2win", "screen2fail", "screen2boring", "screen2wtf"];
+	
+	$(document).on("pagecreate","#screen2cute",function(){
+		$("#screen2cute").bind("swipeleft", function (e) {
+			/*$.mobile.changePage("#screen2win", { transition : 'slide'});*/
+			$('#coolContent').html( $('#cuteContent').html() ); 
+			//alert(pictureOrder.indexOf("screen2cute"));
+		});
 	});
 </script>
 </head>
 <body>
    
-	
-   
-   
    
    <div data-role="page" id="screen1" data-theme="b" >
 		
-		<div data-role="popup" id="popupBasic" >
+		<div data-role="popup" id="popupBasic" style="width:200px;" >
+			
 			<div data-role="header" >
 				 <h1>Settings</h1>
+				 <!-- <a class="ui-btn-right" data-icon="delete"/> -->
 			</div>	
-			Change Theme
-			<a data-role="button" class="theme" id="a">Theme A</a>
-			<a data-role="button" class="theme" id="b">Theme B</a>
-			<a data-role="button" class="theme" id="c">Theme C</a>
-			<a data-role="button" class="theme" id="d">Theme D</a>
-			<a data-role="button" class="theme" id="e">Theme E</a>
+			<h4 style="text-align:center;">Change Theme</h4>
+			<div style="padding: 0px 20px 20px 20px;">
+				<a data-role="button" class="theme" id="a">Theme A</a>
+				<a data-role="button" class="theme" id="b">Theme B</a>
+				<a data-role="button" class="theme" id="c">Theme C</a>
+				<a data-role="button" class="theme" id="d">Theme D</a>
+				<a data-role="button" class="theme" id="e">Theme E</a>
+			</div>
 			
 		</div>
 		
@@ -69,29 +80,30 @@
         <div id="div1" data-role="content">
         
 			<ul data-role="listview" data-inset="true" >
-				<li class="imageButton">
-					<a  href="#screen2" data-transition="flip">
+			
+				<li>
+					<a class="" id="Cute" href="#screen2cute" data-transition="flip">
 					<img src="http://cutestuff.co/wp-content/uploads/2012/03/cute_cat_eyes.jpg" />
 					<h2>Cute</h2></a>
 				</li>
 				<li>
-					<a class="imageButton" href="#">
+					<a class="" id="Win" href="#screen2win" data-transition="flip">
 					<img src="http://31.media.tumblr.com/tumblr_lxr8e2v3mK1rnnpl4o1_500.jpg" />
 					<h2>Win</h2></a>
 				</li>
 				<li>
-					<a class="imageButton" href="#">
+					<a class="imageButton" id="Fail" href="#screen2fail">
 					<img src="http://jonathanbecher.com/wp-content/uploads/2013/11/Fail1.jpg" />
 					<h2>Fail</h2></a>
 				</li>
 				<li>
-					<a class="imageButton" href="#">
+					<a class="imageButton" id="Boring" href="#screen2boring">
 					<img src="http://strictlyautobiographical.com/wp-content/uploads/2013/12/nothing.jpg" />
 					<h2>Boring</h2></a>
 				</li>
 				<li>
 					
-					<a class="imageButton" href="#">
+					<a class="imageButton" id="WTF" href="#screen2wtf">
 					<img src="http://data1.whicdn.com/images/34666029/large.jpg" />
 					<h2>WTF</h2></a>
 				</li>
@@ -106,11 +118,44 @@
 	
 	
 	
-	 <div data-role="page" id="screen2" data-add-back-btn="true" >
+	 <div data-role="page" id="screen2cute" data-add-back-btn="true" >
  
         <div data-role="header" >
 			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
-            <h1>My Title</h1>
+            <h1>Cute</h1>
+			<a href="#screen1" data-icon="home" data-transition="flow">Home</a>
+        </div><!-- /header -->
+ 
+        <div data-role="content" id="cuteContent">
+			<img src="http://cutestuff.co/wp-content/uploads/2012/03/cute_cat_eyes.jpg" />
+        </div><!-- /content -->
+ 
+    </div><!-- /page -->
+	
+	
+	
+	
+	 <div data-role="page" id="screen2win" data-add-back-btn="true" >
+ 
+        <div data-role="header" >
+			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
+            <h1>Win</h1>
+			<a href="#screen1" data-icon="home" data-transition="flow">Home</a>
+        </div><!-- /header -->
+ 
+        <div data-role="content" id="coolContent">
+			<img src="http://31.media.tumblr.com/tumblr_lxr8e2v3mK1rnnpl4o1_500.jpg" />
+     
+        </div><!-- /content -->
+ 
+    </div><!-- /page -->
+	
+	
+	 <div data-role="page" id="screen2fail" data-add-back-btn="true" >
+ 
+        <div data-role="header" >
+			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
+            <h1>Fail</h1>
 			<a href="#screen1" data-icon="home" data-transition="flow">Home</a>
         </div><!-- /header -->
  
@@ -121,8 +166,34 @@
     </div><!-- /page -->
 	
 	
+	 <div data-role="page" id="screen2boring" data-add-back-btn="true" >
+ 
+        <div data-role="header" >
+			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
+            <h1>Boring</h1>
+			<a href="#screen1" data-icon="home" data-transition="flow">Home</a>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+     
+        </div><!-- /content -->
+ 
+    </div><!-- /page -->
 	
 	
+	 <div data-role="page" id="screen2wtf" data-add-back-btn="true" >
+ 
+        <div data-role="header" >
+			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
+            <h1>WTF</h1>
+			<a href="#screen1" data-icon="home" data-transition="flow">Home</a>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+     
+        </div><!-- /content -->
+ 
+    </div><!-- /page -->
 	
 	 <div data-role="page" id="screen3" data-add-back-btn="true">
  
