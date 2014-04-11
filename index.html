@@ -55,7 +55,7 @@
 			$("#screen2 h1").text($clickedTitle);
 
 			//saves clicked img src to variable
-			var $img = "<div id='"+$clickedImg+"-div'><img id='"+$clickedImg+"' draggable='false' src='images/" + $clickedImg + ".jpg'</img> </div>";
+			var $img = "<div id='"+$clickedImg+"'><img id='galleryImg' draggable='false' src='images/" + $clickedImg + ".jpg'</img> </div>";
 			//Adds clicked image to page 2 content
 			$("#screen2 #img-holder").html($img);
 
@@ -74,7 +74,7 @@
 				var $newH1L = $newSrcL.replace('images/','').replace('.jpg','');
 				
 				$("#screen2 h1").text($newH1L);
-				$("img").attr("src",$newSrcL);
+				$("img#galleryImg").attr("src",$newSrcL);
 
 			});
 			
@@ -85,7 +85,7 @@
 				var $newH1R = $newSrcR.replace('images/','').replace('.jpg','');
 				
 				$("#screen2 h1").text($newH1R);
-				$("img").attr("src",$newSrcR);
+				$("img#galleryImg").attr("src",$newSrcR);
 
 			});
 		});
@@ -123,28 +123,28 @@
 			<ul data-role="listview" data-inset="true" >
 			
 				<li id="Cute">
-					<a class=""  href="#screen2" data-transition="flip">
+					<a  href="#" data-transition="flip">
 					<img src="images/Cute.jpg" />
 					<h2>Cute</h2></a>
 				</li>
 				<li id="Win">
-					<a class=""  href="#screen2win" data-transition="flip">
+					<a href="#" data-transition="flip">
 					<img src="images/Win.jpg" />
 					<h2>Win</h2></a>
 				</li>
 				<li id="Fail" >
-					<a class="imageButton" href="#screen2fail">
+					<a href="#">
 					<img src="images/Fail.jpg" />
 					<h2>Fail</h2></a>
 				</li>
 				<li id="Boring">
-					<a class="imageButton"  href="#screen2boring">
+					<a href="#">
 					<img src="images/Boring.jpg" />
 					<h2>Boring</h2></a>
 				</li>
 				<li id="WTF">
 					
-					<a class="imageButton"  href="#screen2wtf">
+					<a  href="#">
 					<img src="images/WTF.jpg" />
 					<h2>WTF</h2></a>
 				</li>
@@ -163,7 +163,7 @@
  
         <div data-role="header" >
 			<a href="#" data-icon="arrow-l" data-rel="back">Back</a>
-            <h1>Cute</h1>
+            <h1></h1>
 			<a href="#screen1" data-icon="home" data-transition="flow">Home</a>
         </div><!-- /header -->
  
@@ -187,7 +187,7 @@
  
         <div data-role="content">
 			<ul data-role="listview" data-inset="true">
-				<li >The Undevelopers</li>
+				<li data-theme="e">The Undevelopers</li>
 				<li>Dan Carino</li>
 				<li>Stephanie Flodman</li>
 				<li>Fiona Stewart</li>
