@@ -66,18 +66,26 @@
 	
 	$(document).on("pagecreate","#screen2",function(){
 			$("#screen2").bind("swipeleft", function (e) {
-				var $img2 = $("div > img").attr("src");
-				var $pos = pictureOrder.indexOf($img2);
-				$("#screen2 h1").text($("img").attr("id"));
-				$("img").attr("src",pictureOrder[$pos+1]);
+			
+			
+				var $curSrcL = $("div > img").attr("src");
+				var $posL = pictureOrder.indexOf($curSrcL);
+				var $newSrcL = pictureOrder[$posL+1];
+				var $newH1L = $newSrcL.replace('images/','').replace('.jpg','');
+				
+				$("#screen2 h1").text($newH1L);
+				$("img").attr("src",$newSrcL);
 
 			});
 			
 			$("#screen2").bind("swiperight", function (e) {
-				var $img2 = $("div > img").attr("src");
-				var $pos = pictureOrder.indexOf($img2);
-				$("#screen2 h1").text($("img").attr("id"));
-				$("img").attr("src",pictureOrder[$pos-1]);
+				var $curSrcR = $("div > img").attr("src");
+				var $posR = pictureOrder.indexOf($curSrcR);
+				var $newSrcR = pictureOrder[$posR-1];
+				var $newH1R = $newSrcR.replace('images/','').replace('.jpg','');
+				
+				$("#screen2 h1").text($newH1R);
+				$("img").attr("src",$newSrcR);
 
 			});
 		});
